@@ -25,11 +25,11 @@ MonoBehaviour:
     - iconNameOrGuid: RawImage Icon
       colorIndex: 4
       isIconRecursive: 0
-      isColorRecursive: 0
+      isColorRecursive: 1
     - iconNameOrGuid: cs Script Icon
       colorIndex: 3
       isIconRecursive: 0
-      isColorRecursive: 0
+      isColorRecursive: 1
     - iconNameOrGuid: Material Icon
       colorIndex: 6
       isIconRecursive: 0
@@ -52,3 +52,5 @@ MonoBehaviour:
       isColorRecursive: 0
   bookmarks:
   - guid: 07eb379a877ee7e43bda1aaf857e2385
+  - guid: 812f910da3277004f870e425714ba009
+  - guid: 32f9d474378ad4741a336a8ed9d37930
