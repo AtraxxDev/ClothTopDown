@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         _playerMovement.Move();
     }
 }

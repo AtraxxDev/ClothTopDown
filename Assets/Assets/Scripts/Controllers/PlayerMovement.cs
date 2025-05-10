@@ -13,7 +13,19 @@ public class PlayerMovement : MonoBehaviour
     [ShowInInspector]
     private bool canMove = true;
 
-   
+
+    private void OnEnable()
+    {
+        InventoryUI.OnInventoryOpened += DisableMovement;
+        InventoryUI.OnInventoryClosed += EnableMovement;
+    }
+
+    private void OnDisable()
+    {
+        InventoryUI.OnInventoryOpened -= DisableMovement;
+        InventoryUI.OnInventoryClosed -= EnableMovement;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,5 +61,8 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = value;
     }
+
+    void DisableMovement() => canMove = false;
+    void EnableMovement() => canMove = true;
 
 }
