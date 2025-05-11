@@ -3,14 +3,21 @@ using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
+    [SerializeField] private int maxSlots = 20;
     [SerializeField] private List<ItemData> ownedItems = new();
 
     public IReadOnlyList<ItemData> Items => ownedItems;
 
-    public void AddItem(ItemData item)
+    public bool AddItem(ItemData item)
     {
-        if (!ownedItems.Contains(item))
-            ownedItems.Add(item);
+        if (ownedItems.Count >= maxSlots)
+        {
+            Debug.Log("Inventario lleno");
+            return false;
+        }
+
+        ownedItems.Add(item);
+        return true;
     }
 
     public void RemoveItem(ItemData item)

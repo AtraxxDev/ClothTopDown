@@ -1,17 +1,23 @@
 using UnityEngine;
 
-public class ClothesShopNPC: NPCInteraction
+public class ClothesShopNPC : NPCInteraction
 {
+    [SerializeField] private ShopSystem shopSystem;
+    [SerializeField] private GameObject shopUIPanel;
+    [SerializeField] private ShopChoicePanel choicePanel;
+
+
     public override void StartInteraction()
     {
         base.StartInteraction();
-        Debug.Log("Interactue con el ShopKeeper");
+        shopUIPanel.SetActive(true);
+        choicePanel.OpenChoice(shopSystem);
     }
 
     public override void EndInteraction()
     {
         base.EndInteraction();
-        Debug.Log("Deje de Interactuar con el ShopKeeper");
+        shopUIPanel.SetActive(false);
 
     }
 }
