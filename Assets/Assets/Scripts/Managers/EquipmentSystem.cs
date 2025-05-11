@@ -8,14 +8,23 @@ public class EquipmentSystem : MonoBehaviour
     public delegate void OnItemEquippedDelegate (ItemData item);
     public event OnItemEquippedDelegate OnItemEquipped;
 
-    public bool EquipItem(ItemData item)
+    public ItemData EquipItem(ItemData item)
     {
-        if (item == null) return false;
+        if (item == null) return null;
+
+        ItemData previousItem = null;
+
+        if (equippedItems.TryGetValue(item.type, out var existing))
+        {
+            previousItem = existing;
+        }
 
         equippedItems[item.type] = item;
         OnItemEquipped?.Invoke(item);
-        return true;
+
+        return previousItem;
     }
+
 
     public ItemData GetEquippedItem(ItemType type)
     {

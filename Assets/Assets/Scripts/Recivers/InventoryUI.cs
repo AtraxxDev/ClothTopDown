@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InventorySystem inventory;
     [SerializeField] private EquipmentSystem equipment;
 
-    [SerializeField] private List<InventorySlotUI> slots; 
+    [SerializeField] private List<InventorySlotUI> slots;
 
     public static event Action OnInventoryOpened;
     public static event Action OnInventoryClosed;
@@ -15,12 +15,12 @@ public class InventoryUI : MonoBehaviour
     private void OnEnable()
     {
         Refresh();
-        OnInventoryOpened.Invoke();
+        OnInventoryOpened?.Invoke();
     }
 
     private void OnDisable()
     {
-        OnInventoryClosed.Invoke();
+        OnInventoryClosed?.Invoke();
     }
 
     public void Refresh()
@@ -34,8 +34,7 @@ public class InventoryUI : MonoBehaviour
             }
             else
             {
-                slots[i].Clear(); 
-               
+                slots[i].Clear();
             }
         }
     }
@@ -43,10 +42,16 @@ public class InventoryUI : MonoBehaviour
     private void OnSlotClicked(ItemData item)
     {
         Debug.Log($"Clic en: {item.displayName}");
-        if (equipment.EquipItem(item))
+
+       
+        ItemData replacedItem = equipment.EquipItem(item);
+
+        if (replacedItem != null)
         {
-            inventory.RemoveItem(item);
-            Refresh();
+            inventory.AddItem(replacedItem); 
         }
+
+        inventory.RemoveItem(item); 
+        Refresh(); 
     }
 }
