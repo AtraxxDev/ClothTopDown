@@ -56,5 +56,8 @@ TagManager:
   - name: Scarf
     uniqueID: 1077065547
     locked: 0
+  - name: Trees
+    uniqueID: 1332248901
+    locked: 0
   m_RenderingLayers:
   - Default
