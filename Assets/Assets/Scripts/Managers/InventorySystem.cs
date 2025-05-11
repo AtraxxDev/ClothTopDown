@@ -22,4 +22,5 @@ public class InventorySystem : MonoBehaviour
     {
         return ownedItems.Contains(item);
     }
+
 }

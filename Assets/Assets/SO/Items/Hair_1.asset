@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e84fa1f8c549d4894bb7620a247a9c, type: 3}
-  m_Name: Hat_1
+  m_Name: Hair_1
   m_EditorClassIdentifier: 
   itemId: 1
-  displayName: Hat_1
-  type: 0
-  icon: {fileID: -134280500, guid: dc7f98ddd1807014099ae3a15124d25c, type: 3}
-  spriteVisual: {fileID: -134280500, guid: dc7f98ddd1807014099ae3a15124d25c, type: 3}
+  displayName: Hair_1
+  type: 1
+  icon: {fileID: -3189305257266380609, guid: e12047dd2a81f58468e1881c60949f90, type: 3}
+  spriteVisual: {fileID: -3189305257266380609, guid: e12047dd2a81f58468e1881c60949f90, type: 3}
   buyPrice: 20
   sellPrice: 15

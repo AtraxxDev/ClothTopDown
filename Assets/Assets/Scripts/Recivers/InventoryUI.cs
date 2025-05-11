@@ -5,6 +5,8 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private InventorySystem inventory;
+    [SerializeField] private EquipmentSystem equipment;
+
     [SerializeField] private List<InventorySlotUI> slots; 
 
     public static event Action OnInventoryOpened;
@@ -33,7 +35,7 @@ public class InventoryUI : MonoBehaviour
             else
             {
                 slots[i].Clear(); 
-                //slots[i].gameObject.SetActive(false);
+               
             }
         }
     }
@@ -41,6 +43,10 @@ public class InventoryUI : MonoBehaviour
     private void OnSlotClicked(ItemData item)
     {
         Debug.Log($"Clic en: {item.displayName}");
-        // EquipItem(item), vender, etc.
+        if (equipment.EquipItem(item))
+        {
+            inventory.RemoveItem(item);
+            Refresh();
+        }
     }
 }

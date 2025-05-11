@@ -3,6 +3,7 @@ using UnityEngine;
 public enum ItemType
 {
     Hat,
+    Hair,
     Glasses,
     Shirt,
     Scarf,
